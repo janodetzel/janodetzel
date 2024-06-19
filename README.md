@@ -8,7 +8,6 @@ I've been learning React and React Native for the past 3 years. Build several pr
 -   🖥️  See my portfolio at [this unmaintained website](http://www.janodetzel.com)
 -   🧠  I'm learning generic types in TypeScript
 -   🤝  I'm open to collaborating on interesting open source stuff
--   ⚡  BMX yes yes yo
 
 <a href="https://www.twitter.com/janodetzel1" target="_blank" rel="noreferrer"><img
 src="https://img.shields.io/twitter/follow/janodetzel1?logo=twitter&style=for-the-badge&color=0891b2&labelColor=1c1917"
