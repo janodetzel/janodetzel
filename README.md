@@ -1,26 +1,54 @@
+# janodetzel.com
+
+Personal portfolio site built with [TanStack Start](https://tanstack.com/start) and deployed on [Cloudflare Workers](https://workers.cloudflare.com/).
+
+## Tech Stack
+
+- **Framework**: TanStack Start (React, Vite, TanStack Router)
+- **Hosting**: Cloudflare Workers
+- **Content**: Markdown files in `content/` (blog, projects, pages)
+
+## Development
+
+```bash
+npm install
+npm run dev
 ```
-     ██╗ █████╗ ███╗   ██╗ ██████╗ 
-     ██║██╔══██╗████╗  ██║██╔═══██╗
-     ██║███████║██╔██╗ ██║██║   ██║
- ██  ██║██╔══██║██║╚██╗██║██║   ██║
- ██████║██║  ██║██║ ╚████║╚██████╔╝
-  ╚════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
+
+Open http://localhost:3000
+
+## Build & Deploy
+
+```bash
+npm run build
+npm run deploy
 ```
 
-**Full-stack developer** with a passion for building scalable and efficient applications. Experienced in TypeScript, React, React Native, and cloud technologies. Always eager to learn and explore new technologies.
+Deploy requires a Cloudflare account. Configure `wrangler.jsonc` for your project and run `wrangler deploy` (or `npm run deploy`).
 
-[![janodetzel.com](https://img.shields.io/badge/web-janodetzel.com-4285F4?style=flat-square&logo=cloudflare&logoColor=white)](https://janodetzel.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/janodetzel)
+## Content
 
----
+- `content/blog/*.md` – Blog posts
+- `content/projects/*.md` – Project pages
+- `content/pages/*.md` – Static pages (home, site-notice)
 
-### 🛠️ Tech Stack
+Frontmatter fields: `title`, `description`, `publishedAt`, `updatedAt`, `tags`, `featured`, `public`, `slug`, `tweet`.
 
-**Languages:** TypeScript · Swift · Kotlin · Go
+## Routes
 
-**Frameworks:** React · React Native · Expo
+| Path | Description |
+|------|-------------|
+| `/` | Home |
+| `/blog` | Blog index |
+| `/blog/:slug` | Blog post |
+| `/projects` | Projects index |
+| `/projects/:slug` | Project page |
+| `/site-notice` | Site notice |
+| `/vscode-neovim` | Redirects to `/blog/vscode-neovim` |
+| `/feed.xml` | RSS feed |
+| `/sitemap.xml` | Sitemap |
+| `/robots.txt` | Robots file |
 
-**Cloud & Infrastructure:** AWS · Cloudflare · Supabase
+## Migration from Notion
 
-**Editor:**  Neovim [lazyconfig](https://github.com/janodetzel/lazyconfig)
-
+Content was migrated from a Notion export using `npm run convert-content`. The conversion script reads from `tmp/ExportBlock-*` and writes markdown to `content/`. Run once; edit markdown directly afterward.
