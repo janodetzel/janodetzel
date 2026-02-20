@@ -18,9 +18,16 @@ export interface BlogPost extends ContentFrontmatter {
 export interface Project extends ContentFrontmatter {
   type: 'project'
   content: string
+  cover?: string
+  icon?: string
 }
 
 export interface PageContent extends ContentFrontmatter {
   type: 'page'
   content: string
+  email?: string
+  cover?: string
+  avatar?: string
+  footerTitle?: string
+  footerContent?: string
 }

@@ -50,6 +50,12 @@ function extractBodyFromHtml(html: string): string {
   return match[1]!.trim()
 }
 
+function extractCoverFromHtml(html: string): string | null {
+  const match = html.match(/<img[^>]+class="[^"]*page-cover-image[^"]*"[^>]+src="([^"]+)"/)
+  if (!match) return null
+  return match[1]!.trim()
+}
+
 function htmlToMarkdown(html: string): string {
   const td = new TurndownService({
     headingStyle: 'atx',
@@ -92,8 +98,10 @@ function buildFrontmatter(meta: Record<string, string>, overrides: Record<string
   add('public', meta.Public === 'Yes')
   add('tweet', meta.Tweet ?? '')
   add('slug', overrides.slug ?? meta.Slug ?? '')
+  add('cover', overrides.cover ?? meta.cover ?? '')
+  add('email', overrides.email ?? meta.Mail ?? meta.email ?? '')
   Object.entries(overrides).forEach(([k, v]) => {
-    if (!['title', 'description', 'publishedAt', 'updatedAt', 'tags', 'featured', 'public', 'tweet', 'slug'].includes(k))
+    if (!['title', 'description', 'publishedAt', 'updatedAt', 'tags', 'featured', 'public', 'tweet', 'slug', 'cover', 'email'].includes(k))
       add(k, v)
   })
   lines.push('---')
@@ -250,7 +258,13 @@ async function main() {
     const slug = row.Slug || slugFromTitle(title)
     const imgMap = await copyImages(dirname(htmlPath), slug, 'assets/projects', assetDirName || undefined)
     const mdContent = rewriteImagePaths(mdBody, imgMap)
-    const frontmatter = buildFrontmatter(row as unknown as Record<string, string>, { slug })
+    const coverSrc = extractCoverFromHtml(html)
+    let coverPath: string | undefined
+    if (coverSrc && !coverSrc.startsWith('http')) {
+      const coverFile = coverSrc.split('/').pop() || coverSrc
+      coverPath = imgMap.get(coverFile) || (imgMap.size > 0 ? `/assets/projects/${slug}/${coverFile}` : undefined)
+    }
+    const frontmatter = buildFrontmatter(row as unknown as Record<string, string>, { slug, cover: coverPath })
     const outPath = join(CONTENT_ROOT, 'projects', `${slug}.md`)
     await writeFile(outPath, `${frontmatter}\n\n${mdContent}`, 'utf-8')
     console.log('Project:', slug)
@@ -273,7 +287,7 @@ async function main() {
   const homeBody = extractBodyFromHtml(homeHtml)
   let homeMd = htmlToMarkdown(homeBody || '')
   const homeFm = buildFrontmatter(
-    { 'Page Title': 'Jano Detzel', Description: 'full stack developer', Slug: '', Public: 'Yes' } as Record<string, string>,
+    { 'Page Title': 'Jano Detzel', Description: 'full stack developer', Slug: '', Public: 'Yes', Tags: 'APIs, React, ReactNative', Mail: 'jano@janodetzel.com' } as Record<string, string>,
     { slug: 'home', public: true }
   )
   await writeFile(join(CONTENT_ROOT, 'pages', 'home.md'), `${homeFm}\n\n${homeMd}`, 'utf-8')

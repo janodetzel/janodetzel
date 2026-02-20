@@ -26,8 +26,8 @@ function SiteNoticePage() {
   const page = Route.useLoaderData()
   if (!page) return null
   return (
-    <div className="container" style={{ padding: '3rem 24px' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>{page.title}</h1>
+    <div className="mx-auto max-w-[720px] px-6 py-12">
+      <h1 className="text-3xl font-bold mb-6">{page.title}</h1>
       <Markdown content={page.content} />
     </div>
   )

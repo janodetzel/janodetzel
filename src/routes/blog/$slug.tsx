@@ -29,11 +29,11 @@ export const Route = createFileRoute('/blog/$slug')({
 function BlogPost() {
   const post = Route.useLoaderData()
   return (
-    <article className="container" style={{ padding: '3rem 24px' }}>
-      <header style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{post.title}</h1>
+    <article className="mx-auto max-w-[720px] px-6 py-12">
+      <header className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
         {(post.publishedAt || post.updatedAt) && (
-          <time style={{ fontSize: '0.9rem', color: 'var(--fg-muted)' }}>
+          <time className="text-muted-foreground text-sm">
             {post.updatedAt ?? post.publishedAt}
           </time>
         )}

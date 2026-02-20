@@ -6,6 +6,7 @@ tags: ["Expo", "React-Native", "Supabase", "tRPC"]
 featured: true
 public: true
 slug: "feierabend-events"
+cover: "/assets/projects/feierabend-events/Notion_Cover-fe.png"
 ---
 
 # Feierabend-Events:

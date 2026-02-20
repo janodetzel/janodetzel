@@ -1,48 +1,213 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { getBlogPosts } from '~/lib/content/blog'
-import { getProjects } from '~/lib/content/projects'
-import { getPageBySlug } from '~/lib/content/pages'
-import { Markdown } from '~/components/Markdown'
+import { ArrowRight, Github } from 'lucide-react'
+import { Avatar, AvatarImage } from '~/components/ui/avatar'
+import { Badge } from '~/components/ui/badge'
+import { Button } from '~/components/ui/button'
+import { Card, CardContent } from '~/components/ui/card'
+import { Separator } from '~/components/ui/separator'
 import { site } from '~/config'
+import { getBlogPosts } from '~/lib/content/blog'
+import { getPageBySlug } from '~/lib/content/pages'
+import { getProjects } from '~/lib/content/projects'
+import type { SearchableItem } from '~/lib/search'
+import { getExcerpt } from '~/lib/search'
 
 export const Route = createFileRoute('/')({
+  validateSearch: (search: Record<string, unknown>): { search?: string } => ({
+    search: typeof search.search === 'string' ? search.search : undefined,
+  }),
   loader: async () => {
-    const [posts, projects, homePage] = await Promise.all([
-      getBlogPosts(),
+    const [projects, homePage, posts] = await Promise.all([
       getProjects(),
       getPageBySlug('home'),
+      getBlogPosts(),
     ])
-    const featured = [...posts.filter((p) => p.featured), ...projects.filter((p) => p.featured)]
-    return { posts, projects, homePage, featured }
+    const latestPost = posts[0] ?? null
+    return { projects, homePage, latestPost }
   },
   component: HomePage,
 })
 
+function formatProjectDate(d: string | undefined): string {
+  if (!d) return ''
+  try {
+    const date = new Date(d)
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  } catch {
+    return d
+  }
+}
+
 function HomePage() {
-  const { homePage, featured } = Route.useLoaderData()
+  const { projects, homePage, latestPost } = Route.useLoaderData()
+  const tags = homePage?.tags ?? []
+  const email = homePage?.email ?? 'hello@janodetzel.com'
+
   return (
-    <div className="container" style={{ padding: '3rem 24px' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{site.name}</h1>
-      <p style={{ color: 'var(--fg-muted)', marginBottom: '2rem' }}>{site.description}</p>
-      {homePage?.content && <Markdown content={homePage.content} />}
-      <section style={{ marginTop: '2rem' }}>
-        <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>Featured</h2>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          {featured.slice(0, 4).map((item) => (
-            <li key={item.slug} style={{ marginBottom: '0.5rem' }}>
-              <Link
-                to={item.type === 'blog' ? '/blog/$slug' : '/projects/$slug'}
-                params={{ slug: item.slug! }}
+    <article>
+      <header className="mb-8 w-full overflow-hidden">
+        <img
+          src={homePage?.cover ?? 'https://media.giphy.com/media/JoVV55m3KZHdxlpFZ6/giphy.gif'}
+          alt=""
+          className="block w-full max-h-[30vh] object-cover object-center"
+        />
+      </header>
+      <div className="mx-auto max-w-[900px] px-6 py-12">
+        <header className="text-center mb-8">
+          <h1 className="text-4xl font-bold mb-3">{site.name}</h1>
+          <div className="flex flex-wrap justify-center items-center gap-2 mb-2">
+            {tags.map((tag) => (
+              <Badge key={tag} variant="default">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+          <a
+            href={`mailto:${email}`}
+            className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {email}
+          </a>
+        </header>
+
+        <div className="grid grid-cols-[68.75%_31.25%] gap-8 mb-8 max-md:grid-cols-1">
+          <div className="flex flex-col justify-between min-h-[202px] max-md:min-h-0 max-md:justify-start">
+            <div>
+              <h2 className="text-3xl font-semibold mb-2">
+                {homePage?.title}
+              </h2>
+              <p className="text-muted-foreground m-0">
+                {homePage?.description}
+              </p>
+            </div>
+            {site.github && (
+              <Button
+                variant="outline"
+                size="lg"
+                asChild
+                className="w-fit gap-2 px-6 py-6 text-base max-md:mt-4"
               >
-                {item.title ?? item.slug}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <p style={{ marginTop: '2rem' }}>
-        <Link to="/blog">Blog</Link> · <Link to="/site-notice">Site notice</Link>
-      </p>
-    </div>
+                <a
+                  href={`https://github.com/${site.github}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  Github
+                  <Github size={20} aria-hidden />
+                </a>
+              </Button>
+            )}
+          </div>
+          <div className="flex flex-row items-start gap-4">
+            <Avatar className="size-[202px] shrink-0">
+              <AvatarImage src={homePage?.avatar ?? '/assets/pages/home/profile-2.png'} alt="Jano Detzel" />
+            </Avatar>
+          </div>
+        </div>
+
+        <Separator className="my-8" />
+
+        {latestPost?.slug && (
+          <section className="mb-8">
+            <h4 className="text-base font-semibold mb-4">Latest from the blog</h4>
+            <Link
+              to="/blog/$slug"
+              params={{ slug: latestPost.slug }}
+              className="group block text-inherit no-underline focus:outline-none"
+            >
+              <Card className="overflow-hidden border-transparent transition-all hover:border-border hover:brightness-[1.02] hover:shadow-md dark:hover:shadow-lg">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-semibold mb-2">{latestPost.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-2 line-clamp-2">
+                    {getExcerpt(latestPost as SearchableItem)}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {(latestPost.tags ?? []).length > 0 && (
+                      <div className="flex flex-wrap gap-1">
+                        {(latestPost.tags ?? []).map((tag) => (
+                          <Badge key={tag} variant="secondary" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
+                    {(latestPost.updatedAt || latestPost.publishedAt) && (
+                      <time className="text-muted-foreground text-xs">
+                        {formatProjectDate(latestPost.updatedAt ?? latestPost.publishedAt)}
+                      </time>
+                    )}
+                    <span className="inline-flex items-center gap-1 text-sm font-medium text-foreground group-hover:underline">
+                      Read more
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          </section>
+        )}
+
+        <Separator className="my-8" />
+
+        <section>
+          <h4 className="text-base font-semibold mb-4">Projects</h4>
+          <div className="mt-8 grid grid-cols-[repeat(auto-fill,minmax(360px,1fr))] gap-[6vmin]">
+            {projects.map((project) =>
+              project.slug ? (
+                <Link
+                  key={project.slug}
+                  to="/projects/$slug"
+                  params={{ slug: project.slug }}
+                  className="group"
+                >
+                  <Card className="overflow-hidden border-transparent transition-all hover:border-border hover:brightness-[1.02] hover:shadow-md dark:hover:shadow-lg">
+                    {project.cover ? (
+                      <img
+                        src={project.cover}
+                        alt=""
+                        className="aspect-video w-full object-cover rounded-t-lg"
+                      />
+                    ) : (
+                      <div className="aspect-video w-full rounded-t-lg bg-muted" />
+                    )}
+                    <CardContent className="px-4 py-6">
+                      <h3 className="text-xl font-semibold mb-2">{project.title ?? project.slug}</h3>
+                      <p className="text-muted-foreground text-sm m-0">{project.description}</p>
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        {(project.tags ?? []).map((tag) => (
+                          <Badge key={tag} variant="secondary" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      {project.publishedAt && (
+                        <time className="block mt-2 text-muted-foreground text-xs">
+                          {formatProjectDate(project.publishedAt)}
+                        </time>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
+              ) : null)}
+          </div>
+        </section>
+
+        <Separator className="my-8" />
+
+        <section>
+          <h2 className="text-xl font-semibold mb-2">
+            {homePage?.footerTitle ?? '📮 Contact'}
+          </h2>
+          <p className="text-muted-foreground">
+            {homePage?.footerContent ?? 'The best way to get in touch with me is to email'}{' '}
+            <a href={`mailto:${email}`} className="hover:text-foreground transition-colors">
+              {email}
+            </a>
+            .
+          </p>
+        </section>
+      </div>
+    </article>
   )
 }

@@ -3,7 +3,6 @@ export const site = {
   domain: 'janodetzel.com',
   author: 'Jano Detzel',
   description: 'Full stack developer based in Germany',
-  twitter: 'janodetzel1',
   github: 'janodetzel',
   language: 'en',
 } as const

@@ -6,6 +6,7 @@ tags: ["Expo", "React-Native", "React.js"]
 featured: false
 public: true
 slug: "watchlist-app"
+cover: "/assets/projects/watchlist-app/watchlist-app-cover.png"
 ---
 
 # Watchlist App:

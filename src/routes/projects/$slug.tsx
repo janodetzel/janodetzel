@@ -29,11 +29,11 @@ export const Route = createFileRoute('/projects/$slug')({
 function ProjectPage() {
   const project = Route.useLoaderData()
   return (
-    <article className="container" style={{ padding: '3rem 24px' }}>
-      <header style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{project.title}</h1>
+    <article className="mx-auto max-w-[720px] px-6 py-12">
+      <header className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
         {project.description && (
-          <p style={{ color: 'var(--fg-muted)', marginTop: '0.5rem' }}>{project.description}</p>
+          <p className="text-muted-foreground mt-2">{project.description}</p>
         )}
       </header>
       <Markdown content={project.content} />

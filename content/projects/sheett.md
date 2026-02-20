@@ -7,6 +7,7 @@ featured: true
 public: true
 tweet: "https://twitter.com/janodetzel1/status/1522996406033784835?s=21&t=f_eiBjApIABAVme6v_RFnQ"
 slug: "sheett"
+cover: "/assets/projects/sheett/Notion_Cover-sheett-2.png"
 ---
 
 # Introducing Sheett: The Ultimate Web App for Spreadsheets
