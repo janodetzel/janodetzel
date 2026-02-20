@@ -9,7 +9,7 @@ slug: "feierabend-events"
 cover: "/assets/projects/feierabend-events/Notion_Cover-fe.png"
 ---
 
-# Feierabend-Events:
+# Find and Organize Local Events with Feierabend-Events 
 
 > **Discover and Organize Local Events with Ease**
 
@@ -19,25 +19,21 @@ Feierabend-Events is a mobile app that revolutionizes the way event organizers a
 
 Feierabend-Events makes use of the following technologies:
 
-*   **React Native and Expo:  
+*  **React Native and Expo:**
     **The app is built using React Native, a popular framework for cross-platform mobile app development. Expo simplifies the development process and allows for faster prototyping.
 
-*   **React Navigation:  
+*   **React Navigation:**
     **React Navigation ensures smooth and seamless navigation between different screens, providing a pleasant user experience.
 
-*   **BottomSheets:  
+*   **BottomSheets:**
     **The BottomSheets library is employed to display additional event information or actions in a user-friendly bottom sheet layout.
 
-*   **Mapbox Maps and Geolocation APIs:  
+*   **Mapbox Maps and Geolocation APIs:**
     **Mapbox Maps and Geolocation APIs are utilized to provide users with a map view of events and accurate location data for event search and planning purposes.
 
-*   **tRPC:  
+*   **tRPC:**
     **tRPC is used to build and consume type-safe APIs, facilitating efficient communication between the app and the backend.
 
-*   **Supabase:  
+*   **Supabase:**
     **Supabase is leveraged for database management, authentication, and other essential backend functionalities, ensuring secure and reliable data storage.  
     The combination of these technologies enables Feierabend-Events to deliver a robust and user-friendly platform for event discovery and organization.
-
-[![](/assets/projects/feierabend-events/40C0B7CF-7331-44F9-847B-4A7014DAAF95_1_105_c.jpeg)](/assets/projects/feierabend-events/40C0B7CF-7331-44F9-847B-4A7014DAAF95_1_105_c.jpeg)
-
-[![](/assets/projects/feierabend-events/EF62424F-8F86-45E7-9406-01AEBE441AFE_1_105_c.jpeg)](/assets/projects/feierabend-events/EF62424F-8F86-45E7-9406-01AEBE441AFE_1_105_c.jpeg)

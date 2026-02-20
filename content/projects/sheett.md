@@ -22,31 +22,3 @@ Behind the scenes, Sheett utilizes **[Vue.js](https://vuejs.org/)** with **[Type
 
   
 In a nutshell, Sheett simplifies spreadsheet management and promotes efficient collaboration. Whether you're a student, professional, or freelancer, give Sheett a try and experience the convenience of modern spreadsheet tools.
-
-## Try it out (when the countdown times out):
-
-[Sheett](http://sheett.app)
-
-[![](/assets/projects/sheett/Screenshot_2023-11-12_at_21.26.43.png)](/assets/projects/sheett/Screenshot_2023-11-12_at_21.26.43.png)
-
-Landing Page with countdown timer
-
-[![](/assets/projects/sheett/Screenshot_2023-11-12_at_21.26.38.png)](/assets/projects/sheett/Screenshot_2023-11-12_at_21.26.38.png)
-
-Login / Sign-up / Reset Password flow
-
-[![](/assets/projects/sheett/Screenshot_2023-11-12_at_21.27.34.png)](/assets/projects/sheett/Screenshot_2023-11-12_at_21.27.34.png)
-
-Sign-up confirmation
-
-[![](/assets/projects/sheett/Screenshot_2023-11-12_at_21.28.24.png)](/assets/projects/sheett/Screenshot_2023-11-12_at_21.28.24.png)
-
-Create new _______Sheetts_______
-
-[![](/assets/projects/sheett/Screenshot_2023-11-12_at_21.28.27.png)](/assets/projects/sheett/Screenshot_2023-11-12_at_21.28.27.png)
-
-Dashboard
-
-[![](/assets/projects/sheett/Screenshot_2023-11-12_at_21.29.16.png)](/assets/projects/sheett/Screenshot_2023-11-12_at_21.29.16.png)
-
-Edit and share _______Sheetts_______
