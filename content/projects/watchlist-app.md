@@ -9,7 +9,7 @@ slug: "watchlist-app"
 cover: "/assets/projects/watchlist-app/watchlist-app-cover.png"
 ---
 
-# Watchlist App:
+# Manage Your Films and TV Shows with the Watchlist App 
 
 > _**Manage Your Films and TV Shows with Ease**_
 
@@ -61,19 +61,3 @@ Using the Watchlist App is simple and straightforward. Here's a step-by-step gui
     **If you no longer need a user account, log out and tap and hold on the username. Then, tap on the pink text to permanently delete the user, along with all associated watchlists and cards.  
     With these simple steps, you can begin organizing your film and TV show library and take control of your entertainment choices.  
     So, what are you waiting for? Download the Watchlist App now and never miss out on another great movie or enticing TV show. Stay organized, stay entertained!
-
-[![](Watchlist%20App/Untitled.png)](Watchlist%20App/Untitled.png)
-
-Create a user profile
-
-[![](Watchlist%20App/Untitled%201.png)](Watchlist%20App/Untitled%201.png)
-
-Find movies
-
-[![](Watchlist%20App/Untitled%202.png)](Watchlist%20App/Untitled%202.png)
-
-Create _Watchlists_
-
-[![](Watchlist%20App/Untitled%203.png)](Watchlist%20App/Untitled%203.png)
-
-Manage movies and track your progress
