@@ -8,6 +8,7 @@ export const Route = createFileRoute('/site-notice')({
   loader: () => getPageBySlug('site-notice'),
   head: ({ loaderData }) => {
     const page = loaderData
+    if (!page) return { meta: [] }
     return {
       meta: [
         ...seo({

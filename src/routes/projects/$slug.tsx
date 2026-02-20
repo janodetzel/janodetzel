@@ -12,6 +12,7 @@ export const Route = createFileRoute('/projects/$slug')({
   },
   head: ({ loaderData }) => {
     const project = loaderData
+    if (!project) return { meta: [] }
     return {
       meta: [
         ...seo({

@@ -12,6 +12,7 @@ export const Route = createFileRoute('/blog/$slug')({
   },
   head: ({ loaderData }) => {
     const post = loaderData
+    if (!post) return { meta: [] }
     return {
       meta: [
         ...seo({

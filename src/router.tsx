@@ -1,3 +1,9 @@
+// Buffer polyfill for gray-matter in browser (loaders run client-side on navigation)
+import { Buffer } from 'buffer'
+if (typeof globalThis.Buffer === 'undefined') {
+  globalThis.Buffer = Buffer
+}
+
 import { createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 import { DefaultCatchBoundary } from './components/DefaultCatchBoundary'

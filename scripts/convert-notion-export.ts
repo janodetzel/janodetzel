@@ -279,29 +279,39 @@ async function main() {
   await writeFile(join(CONTENT_ROOT, 'pages', 'home.md'), `${homeFm}\n\n${homeMd}`, 'utf-8')
   console.log('Page: home')
 
-  // Copy home page assets (Jano Detzel folder) and rewrite paths
+  // Copy home page assets (Jano Detzel folder) - root-level files and subdirectory images
   try {
     const homeAssetsDir = join(JANODETZEL, 'Jano Detzel')
     const homeAssets = await readdir(homeAssetsDir, { withFileTypes: true })
-    const imgDir = homeAssets.find((e) => e.isDirectory())
-    if (imgDir) {
-      const imgPath = join(homeAssetsDir, imgDir.name)
-      const files = await readdir(imgPath)
-      const outDir = join(PUBLIC_ROOT, 'assets', 'pages', 'home')
-      await mkdir(outDir, { recursive: true })
-      for (const f of files) {
-        const ext = f.split('.').pop()?.toLowerCase()
-        if (['png', 'jpg', 'jpeg', 'gif', 'webp'].includes(ext || '')) {
-          await copyFile(join(imgPath, f), join(outDir, f))
-          const oldPath = `${imgDir.name}/${f}`
-          const oldPathEnc = encodeURIComponent(imgDir.name) + '/' + f
-          homeMd = homeMd.replace(new RegExp(oldPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `/assets/pages/home/${f}`)
-          homeMd = homeMd.replace(new RegExp(oldPathEnc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `/assets/pages/home/${f}`)
+    const outDir = join(PUBLIC_ROOT, 'assets', 'pages', 'home')
+    await mkdir(outDir, { recursive: true })
+    const dirName = 'Jano Detzel'
+
+    const copyAndRewrite = async (srcPath: string, f: string, oldPathPrefix: string) => {
+      await copyFile(join(srcPath, f), join(outDir, f))
+      const oldPath = `${oldPathPrefix}/${f}`
+      const oldPathEnc = encodeURIComponent(oldPathPrefix) + '/' + f
+      homeMd = homeMd.replace(new RegExp(oldPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `/assets/pages/home/${f}`)
+      homeMd = homeMd.replace(new RegExp(oldPathEnc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `/assets/pages/home/${f}`)
+    }
+
+    for (const e of homeAssets) {
+      if (e.isFile()) {
+        const ext = e.name.split('.').pop()?.toLowerCase()
+        if (!['png', 'jpg', 'jpeg', 'gif', 'webp'].includes(ext || '')) continue
+        await copyAndRewrite(homeAssetsDir, e.name, dirName)
+      } else if (e.isDirectory()) {
+        const subFiles = await readdir(join(homeAssetsDir, e.name))
+        for (const f of subFiles) {
+          const subExt = f.split('.').pop()?.toLowerCase()
+          if (['png', 'jpg', 'jpeg', 'gif', 'webp'].includes(subExt || '')) {
+            await copyAndRewrite(join(homeAssetsDir, e.name), f, `${dirName}/${e.name}`)
+          }
         }
       }
-      await writeFile(join(CONTENT_ROOT, 'pages', 'home.md'), `${homeFm}\n\n${homeMd}`, 'utf-8')
-      console.log('Copied home page assets')
     }
+    await writeFile(join(CONTENT_ROOT, 'pages', 'home.md'), `${homeFm}\n\n${homeMd}`, 'utf-8')
+    console.log('Copied home page assets')
   } catch {
     // ignore
   }
