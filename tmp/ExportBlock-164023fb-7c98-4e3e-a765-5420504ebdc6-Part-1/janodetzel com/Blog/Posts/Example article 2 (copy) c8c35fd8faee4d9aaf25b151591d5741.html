@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Example article 2 (copy)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c8c35fd8-faee-4d9a-af25-b151591d5741" class="page sans"><header><img class="page-cover-image" src="Example%20article%202%20(copy)/blur-codes-coding-577585.jpg" style="object-position:center 91.47%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🤗</span></div><h1 class="page-title" dir="auto">Example article 2 (copy)</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Tags</th><td><span class="selected-value select-value-color-green">Node.js</span><span class="selected-value select-value-color-yellow">OSS</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Published</th><td><time>@March 7, 2018</time></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Last Updated</th><td><time>@June 8, 2022 9:59 PM</time></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Author</th><td><a href="https://twitter.com/transitive_bs">Travis Fischer</a></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="30a4c2b8-14ae-4f93-a36d-86147b482845" class=""><em>The best techniques for sharing code snippets and screencasts that will help propel your open source projects to success.</em></p></div><div style="display:contents" dir="auto"><p id="b8da131f-840a-4fa1-847b-80908fb2eeda" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="5dd236dd-2415-4e7f-9292-b72b2e6bb269" class="">Intro</h1></div><div style="display:contents" dir="auto"><p id="23fbbd92-3e84-4165-9e33-b0d9bcac3ce6" class="">Creating your own open source projects can be extremely rewarding, but it can be hard to break through the noise and get other developers to trust and use your software. You can gain a lot of ground by following <a href="https://opensource.guide/">common best practices</a> like including solid documentation, adding unit tests, integrating with a CI/CD oriented towards open-source projects (like <a href="https://travis-ci.org/">travis-ci</a> or <a href="https://circleci.com/">circle-ci</a>), and enforcing consistent style conventions.</p></div><div style="display:contents" dir="auto"><p id="506a68b8-0c48-496f-88e4-922f9b4a2c8a" class="">One of the most effective and easiest ways I’ve found to make open source projects really stand out from the crowd is <strong>adding quality screenshots or animated demos</strong>. Whenever I see this attention to detail, not only does it prove to me that the author cares about the project, but it’s the absolute fastest way to convey what the project actually does.</p></div><div style="display:contents" dir="ltr"><figure id="6e8dc097-6209-4632-a79f-dd90374bc301" class="image"><a href="Example%20article%202%20(copy)/css-coding.gif"><img style="width:600px" src="Example%20article%202%20(copy)/css-coding.gif"/></a><figcaption>Animation Credit: <a href="http://chrisdermody.com/css-only-coding-animation/">CSS-only coding animation</a> by <a href="http://chrisdermody.com/">Chris Dermody</a></figcaption></figure></div><div style="display:contents" dir="auto"><blockquote id="8fe9bf97-75ab-49c3-b50b-080eed1afc78" class="">A picture is worth a thousand words. — Cliche saying that’s totes relevant</blockquote></div><div style="display:contents" dir="auto"><p id="d3d67b33-b4fe-4c80-8b9a-f7bd673aab56" class="">Including quality screenshots and demos is becoming an increasingly important part of what I’d call <strong>Developer UX</strong>, that is the flow a prospective developer takes from considering adding your project as a dependency all the way through successful integration and future maintenance.</p></div><div style="display:contents" dir="auto"><p id="5824d640-ab34-4a63-bdd0-1b23907642f5" class="">Towards that end, we’ll be looking at three common use cases for improving the developer UX of your open source projects with media:</p></div><div style="display:contents" dir="auto"><ul id="dce067c9-ceea-4995-9659-5714cf5a4a8a" class="bulleted-list"><li style="list-style-type:disc">Static code snippets (images)</li></ul></div><div style="display:contents" dir="auto"><ul id="a174b6fc-a1cd-45ce-9113-0e2c2b4a76e2" class="bulleted-list"><li style="list-style-type:disc">Animated code demos (GIFs or animated SVGs)</li></ul></div><div style="display:contents" dir="auto"><ul id="5933f5cb-42ff-4f76-9d57-c1d194a06d3a" class="bulleted-list"><li style="list-style-type:disc">Project screencasts (videos)</li></ul></div><div style="display:contents" dir="auto"><h1 id="1ee58200-21d4-4829-80c3-c3db04bfadbd" class=""><strong>Static Code Snippets</strong></h1></div><div style="display:contents" dir="auto"><p id="4bab2d78-bd9c-4110-bbbc-5acb56fd06d6" class="">Sharing small bits of static code is definitely the most common and important use case on this list. Every open source project’s readme should include some easily parseable <em>example usage</em> snippet, so let’s start there.</p></div><div style="display:contents" dir="auto"><h2 id="20423f59-6473-43c1-846c-a5b45820c15a" class=""><strong>GitHub-Flavored Markdown Snippets</strong></h2></div><div style="display:contents" dir="auto"><p id="4644a809-4810-4425-96d7-49cf856da8eb" class="">At the easiest end of the spectrum, GitHub allows <a href="https://guides.github.com/features/mastering-markdown/">syntax highlighting</a> in markdown code snippets. Hopefully, this style of embedding is familiar to you, and if not, I would definitely recommend starting here.</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3f37f90d-41ee-41d7-90c5-7b6ae41095ec" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">const pMap = require(&#x27;p-map&#x27;)
+const got = require(&#x27;got&#x27;)
+
+const sites = [
+  getWebsiteFromUsername(&#x27;sindresorhus&#x27;), //=&gt; Promise
+  &#x27;ava.li&#x27;,
+  &#x27;todomvc.com&#x27;,
+  &#x27;github.com&#x27;
+]
+
+const mapper = el =&gt; got.head(el).then(res =&gt; res.requestUrl)
+
+pMap(sites, mapper, { concurrency: 2 })
+  .then(result =&gt; {
+    console.log(result)
+    //=&gt; [&#x27;http://sindresorhus.com/&#x27;, &#x27;http://ava.li/&#x27;, &#x27;http://todomvc.com/&#x27;, &#x27;http://github.com/&#x27;]
+  })</code></pre></div><div style="display:contents" dir="auto"><p id="b80630d2-70c3-400e-bf9d-5581070e6c74" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="f3746986-eb52-4a8f-bc09-d792d82a7e26" class=""><strong>GitHub Gists</strong></h2></div><div style="display:contents" dir="auto"><p id="141fc22b-5c36-4ddc-8faf-bb2d24b73a8a" class="">The code snippet above also provides an example of an extremely popular way of sharing static code snippets via <a href="https://help.github.com/articles/about-gists/">GitHub Gists</a>, which have the following advantages:</p></div><div style="display:contents" dir="auto"><ul id="f6bdece2-18cc-4d8d-8939-dab216072b66" class="bulleted-list"><li style="list-style-type:disc">Linkable</li></ul></div><div style="display:contents" dir="auto"><ul id="dadad2a5-5346-4551-abb0-74152e2f8635" class="bulleted-list"><li style="list-style-type:disc">Support versioning</li></ul></div><div style="display:contents" dir="auto"><ul id="ee3ddbe9-181e-4cb9-babb-182b628d656e" class="bulleted-list"><li style="list-style-type:disc">Support discussion via comments</li></ul></div><div style="display:contents" dir="auto"><ul id="5833d96a-b3ff-4322-8a7a-e7d41dc7a9ee" class="bulleted-list"><li style="list-style-type:disc">Syntax highlighting</li></ul></div><div style="display:contents" dir="auto"><h2 id="e444dacf-72a1-4019-9384-a19c63ae0b21" class=""><strong>Carbon</strong></h2></div><div style="display:contents" dir="auto"><p id="77016968-54ac-434c-8d15-c54152d082a2" class="">Markdown snippets and GitHub gists are both useful, but if you really want to make your code pop, then look no further than <a href="https://github.com/dawnlabs/carbon">Carbon</a>.</p></div><div style="display:contents" dir="ltr"><figure id="aacb0086-54a3-48ef-9ef5-31f577375bb6" class="image"><a href="Example%20article%202%20(copy)/carbon.png"><img style="width:1542px" src="Example%20article%202%20(copy)/carbon.png"/></a><figcaption>Image Credit: <a href="https://github.com/dawnlabs/carbon">Carbon</a></figcaption></figure></div><div style="display:contents" dir="auto"><p id="f1a1bebf-6f2e-45a1-a992-4bb9a793842d" class="">Carbon is a very popular open source project that allows you to easily create aesthetically pleasing code screenshots, along with a plethora of customization options and community plugins. It’s a great choice for making a hero image standout in your readme, increasing engagement on social media, or for writing engineering-related blog posts like this one 😛.</p></div><div style="display:contents" dir="auto"><h1 id="80f7a341-2e24-49bb-ba56-93dfa4cd94ed" class=""><strong>Animated Code Demos</strong></h1></div><div style="display:contents" dir="auto"><p id="4c62e432-c716-4b5e-95c9-9644846cc67c" class="">Including a high quality, inline demo that quickly demonstrates your project’s core use case is the single most important suggestion I have to give.</p></div><div style="display:contents" dir="auto"><p id="910bed79-4efc-4027-a525-503ac778db4c" class="">There are a ton of different ways to go about creating these types of demos, however, so I’d like to discuss what I’ve found to be the best approach here.</p></div><div style="display:contents" dir="auto"><blockquote id="9e044f87-0b5b-42fc-8178-a06b2d3b8ddd" class="">Asciinema is a free tool that lets you record and share your terminal sessions, the right way.</blockquote></div><div style="display:contents" dir="auto"><p id="0b6fbc02-3b0f-4640-b771-b4f0d718462d" class=""><a href="https://asciinema.org/"><strong>Asciinema</strong></a> provides a lightweight, purely text-based approach to terminal recording, which allows you to make lossless recordings that can then be shared directly or rendered to animated SVG, animated GIF, or video. It surprised me just how many popular open source projects on GitHub make use of Asciinema — I would highly recommend checking it out.</p></div><div style="display:contents" dir="ltr"><figure id="f569b2a0-5841-4382-ac59-7e8d7f6c5d18" class="image"><a href="Example%20article%202%20(copy)/crl.gif"><img style="width:640px" src="Example%20article%202%20(copy)/crl.gif"/></a><figcaption>Example Asciinema screencast converted to a GIF (credit: <a href="https://github.com/transitive-bullshit/create-react-library">create-react-library</a>) Note that the quality of this embedded GIF is much lower than the animated SVG in the linked <a href="https://github.com/transitive-bullshit/create-react-library">readme</a> as discussed below.</figcaption></figure></div><div style="display:contents" dir="auto"><h2 id="783c8161-e170-45ff-b6da-f749af5a739b" class=""><strong>Animated SVG or GIFs?</strong></h2></div><div style="display:contents" dir="auto"><p id="da5901f7-bfb9-4cae-8c11-3ed2c0bbdea7" class="">We all know GIFs are a horribly inefficient, lossy format, but let’s dig a little deeper into this particular use case.</p></div><div style="display:contents" dir="auto"><p id="1fd7e198-514c-4692-97e5-a61768e8a6f4" class="">Compare the above embedded screencast gif to the animated SVG of the same screencast from the <a href="https://github.com/transitive-bullshit/create-react-library">readme</a>. It’s difficult to embed an inline comparison side-by-side, but the animated SVG is <strong>significantly sharper and smaller</strong>, coming in at 73kb vs 4.4MB for the lower quality GIF.</p></div><div style="display:contents" dir="auto"><p id="7c0553d5-069e-48f7-88b3-79f758f0d562" class="">Why is this even a discussion then? Well, you can’t exactly include custom HTML in a Medium blog post, now can you? And for that matter, there are a lot of places where using custom animated SVGs won’t fly, and for the foreseeable future, GIFs will live on as a fallback for those use cases. But open source authors, please consider using animated SVG versus GIFs for your GitHub projects!</p></div><div style="display:contents" dir="auto"><p id="855b358b-b879-403b-9c8f-6fa26fc512ed" class="">There are some very popular open source projects on GitHub that have started using more efficient animated SVGs for their demos, such as <a href="https://github.com/facebook/create-react-app">create-react-app</a>, but in general, you’ll find GIFs to be much more common.</p></div><div style="display:contents" dir="auto"><p id="3273765c-d69a-43db-83f4-57f4b2ef10e3" class="">Here&#x27;s a few examples of using the excellent <a href="https://github.com/marionebl/svg-term-cli">svg-term-cli</a> to generate our lossless animated SVG.</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9471b57f-fb95-4ffc-8da2-030f7bd85bae" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all"># generate animated SVG
+svg-term --cast &#x27;fxdtpprue51QZkeViQurqPg8V&#x27; --out demo.svg --window --width=80 --height=24 --term=iterm2 --profile=Snazzy
+
+# generate single frame SVG at 20 seconds into the screencast
+svg-term --cast &#x27;fxdtpprue51QZkeViQurqPg8V&#x27; --out screenshot.svg --window --width=80 --height=24 --term=iterm2 --profile=Snazzy --at 20000</code></pre></div><div style="display:contents" dir="auto"><p id="b0b7880e-7459-4bdc-b416-7b40f0cb8c91" class="">It’s important to note that when discussing animated SVGs, we’re really talking about embedding an HTML snippet into GitHub-flavored markdown that links to an SVG file encoded with each frame as an SVG group and the animation defined via CSS keyframes (example SVG source).</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1efe286a-11bf-4655-879d-a390d6828050" class="code code-wrap"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;p align=&quot;center&quot;&gt;
+  &lt;img width=&quot;600&quot; src=&quot;https://cdn.rawgit.com/transitive-bullshit/create-react-library/master/media/demo.svg&quot;&gt;
+&lt;/p&gt;</code></pre></div><div style="display:contents" dir="auto"><p id="78f4997b-0575-4ffe-a84a-70562b3627c2" class="">Insert this HTML snippet into any GitHub-flavored markdown file to embed the linked animated SVG with optimal sharpness and low size overhead compared with a comparable GIF.</p></div><div style="display:contents" dir="auto"><p id="51df37b9-78a0-4729-847e-9ce2ca3f55c1" class="">For reference, here is the screencast from <a href="https://github.com/transitive-bullshit/create-react-library">create-react-library</a> we’ve been using as an example in several different formats:</p></div><div style="display:contents" dir="auto"><ul id="28bb0bce-95a0-4dac-9dec-f75ae80b05f0" class="bulleted-list"><li style="list-style-type:disc">Original <a href="https://asciinema.org/a/167645">asciicast</a></li></ul></div><div style="display:contents" dir="auto"><ul id="67164fc5-5077-4ecc-bf38-7b9e6041913c" class="bulleted-list"><li style="list-style-type:disc">High quality <a href="https://camo.githubusercontent.com/3f38f2bacbc1a6b49a5172232e8a4ccb9f10173f/68747470733a2f2f63646e2e7261776769742e636f6d2f7472616e7369746976652d62756c6c736869742f6372656174652d72656163742d6c6962726172792f6d61737465722f6d656469612f64656d6f2e737667">animated SVG</a> created with <a href="https://github.com/marionebl/svg-term-cli">svg-term-cli</a></li></ul></div><div style="display:contents" dir="auto"><ul id="46438e86-a328-4329-9587-dd2f1c84252f" class="bulleted-list"><li style="list-style-type:disc">Low quality <a href="https://cdn-images-1.medium.com/max/1600/1*6XX4DHE0HSHrGjiLFxmigQ.gif">GIF</a> created with <a href="https://github.com/asciinema/asciicast2gif">asciicast2gif</a></li></ul></div><div style="display:contents" dir="auto"><h2 id="e51472f6-f146-4b00-b2f6-48e55ee1f587" class=""><strong>Capturing and Optimizing GIFs</strong></h2></div><div style="display:contents" dir="auto"><p id="5b449668-b04a-4d0b-8ddb-529a45debf48" class="">Asciinema is great for terminal-based recording, but what if you want to record a UI component or website? Well, my first and foremost answer here is to always include a usable demo if possible alongside your project, especially if it’s a frontend web project. It’s really easy to get started with GitHub <a href="https://pages.github.com/">Page’s</a> free hosting!</p></div><div style="display:contents" dir="auto"><p id="6769d9d9-c940-4c75-8898-b91be3b790ff" class="">If you do want to include a GIF, I’d recommend using either <a href="https://giphy.com/apps/giphycapture">GIPHY Capture</a> or <a href="https://getkap.co/">Kap</a> to record your screen and output a GIF. Alternatively, if you have a video recorded from another source, I’d recommend using <a href="https://github.com/sindresorhus/gifski-app">Gifski</a> to convert the video to an as-optimized-as-possible GIF for ease of embedding.</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9b9a99b5-1ccb-4c4e-8e99-5cc60eaeab96" class="code code-wrap"><code class="language-Markdown" style="white-space:pre-wrap;word-break:break-all">&lt;!-- html snippet customizing embedded gif --&gt;
+&lt;img src=&quot;https://cdn.rawgit.com/terkelg/prompts/master/media/number.gif&quot; alt=&quot;example prompt&quot; width=&quot;499&quot; height=&quot;103&quot; /&gt;
+
+&lt;!-- raw markdown can also be used to ambed a gif --&gt;
+![](https://cdn.rawgit.com/terkelg/prompts/master/media/number.gif)</code></pre></div><div style="display:contents" dir="auto"><p id="5ec50df5-267e-40cb-b8a6-954b348c8405" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="74e55714-a9a5-4a37-9fa8-ff5cd23fe899" class="image"><a href="Example%20article%202%20(copy)/prompts.gif"><img style="width:998px" src="Example%20article%202%20(copy)/prompts.gif"/></a><figcaption>Quality demo GIF embedded in readme using the snippet above. (image credit: <a href="https://github.com/terkelg/prompts">prompts</a> by <a href="https://github.com/terkelg">terkelg</a>)</figcaption></figure></div><div style="display:contents" dir="auto"><h1 id="52b2f89a-cd9b-493f-888a-d335bbd64a00" class=""><strong>Project Screencasts</strong></h1></div><div style="display:contents" dir="auto"><p id="8a2c5fb6-cbe1-475c-a412-f9d080694317" class="">If your project is becoming more involved or you’re launching your project to a wider audience, including walkthrough video(s) can really help with user onboarding and support.</p></div><div style="display:contents" dir="auto"><h2 id="6fe799b6-d00a-42ff-a57d-78da68f4979e" class=""><strong>Screenflow</strong></h2></div><div style="display:contents" dir="auto"><p id="0c1c4e33-cb5c-4b80-9c33-49bad4ddec49" class="">My go-to screen recording software is <a href="https://www.telestream.net/screenflow/overview.htm">ScreenFlow</a>, which is not cheap at $129, but gives you a lot of powerful, quality tools for the price, including precise rectangular screen recording, video and audio track mixing, audio voiceovers, transition effects, and more. This type of screencast is quite a bit more complicated than the screenshots and terminal session recordings we were looking at earlier.</p></div><div style="display:contents" dir="auto"><h1 id="6888bd16-6fba-4a71-9d23-c7205a909446" class=""><strong>Conclusion</strong></h1></div><div style="display:contents" dir="auto"><p id="39147ea7-4978-4591-853a-eadf778f0f1c" class="">Developer UX is important for promoting and marketing your work, which can in turn lead to very real consequences, as getting noticed for your open source contributions is definitely one of the best ways to gain notoriety and land big job opportunities as a software engineer.</p></div><div style="display:contents" dir="auto"><p id="f2e16c9c-3e19-43b3-8a81-f86b380b7c67" class="">I hope some of the techniques I’ve covered help you to promote your open source projects. If you’ve found this article useful and end up creating a snazzy screenshot or animated demo, add a comment linking to your project and let me know!</p></div><div style="display:contents" dir="auto"><p id="86900383-a6c2-4d01-a488-5fbc3e1cb95b" class="">And as always, don’t forget to spread the ❤️… in the form of beautiful coding demos, of course!</p></div><div style="display:contents" dir="auto"><p id="bf7d8d7f-9e06-4873-b04d-a80aba026ae6" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="e39d8872-9408-4b6f-9100-bf5051b92f06"/></div><div style="display:contents" dir="auto"><p id="1cc6170c-74ff-4760-be5a-199b810a512c" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="126bbf4f-c97d-42fa-984d-bbef7c39a2b5"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">Follow me on twitter for more awesome stuff like this <mark class="highlight-blue_background"><a href="https://twitter.com/transitive_bs">@transitive_bs</a></mark></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
