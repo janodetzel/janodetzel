@@ -138,8 +138,12 @@ function HomePage() {
             </div>
           </div>
           <div className="flex flex-row items-start gap-4">
-            <Avatar className="size-[202px] shrink-0">
-              <AvatarImage src={homePage?.avatar ?? '/assets/pages/home/profile-2.png'} alt="Jano Detzel" />
+            <Avatar className="size-[202px] shrink-0 overflow-visible rounded-none">
+              <AvatarImage
+                src={homePage?.avatar ?? '/assets/pages/home/profile-2.png'}
+                alt="Jano Detzel"
+                className="!aspect-auto object-contain"
+              />
             </Avatar>
           </div>
         </div>
