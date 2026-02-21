@@ -35,6 +35,7 @@ assignees: ''
 - [ ] Add at least one practical example/code snippet (if relevant)
 - [ ] Add internal links to related posts/pages
 - [ ] Proofread for clarity and grammar
+- [ ] Has signature (— Jano) at the end
 
 ## SEO and distribution
 
