@@ -5,7 +5,7 @@ publishedAt: "2026-03-01"
 updatedAt: "2026-03-01"
 tags: ["Berlin", "Career", "Remote Work", "Software Engineering", "Relocation"]
 featured: true
-public: true
+public: false
 slug: "moving-to-berlin-after-remote-work"
 ---
 
