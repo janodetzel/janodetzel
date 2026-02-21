@@ -7,8 +7,14 @@ import {
   Scripts,
   ScriptOnce,
 } from '@tanstack/react-router'
-import { Search } from 'lucide-react'
+import { Menu, Search } from 'lucide-react'
 import { Button } from '~/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '~/components/ui/dropdown-menu'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -72,11 +78,14 @@ function RootLayout() {
       <body>
         <ScriptOnce>{themeScript}</ScriptOnce>
         <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <div className="mx-auto flex h-14 max-w-[1100px] items-center justify-between gap-6 px-6">
-            <Link to="/" className="font-semibold text-foreground hover:opacity-80 shrink-0">
+          <div className="mx-auto flex h-14 max-w-[1100px] items-center justify-between gap-2 px-3 sm:gap-6 sm:px-6">
+            <Link
+              to="/"
+              className="min-w-0 flex-1 truncate font-semibold text-foreground hover:opacity-80 sm:flex-none"
+            >
               {site.name}
             </Link>
-            <NavigationMenu className="flex-1 justify-end">
+            <NavigationMenu className="hidden flex-1 justify-end sm:flex">
               <NavigationMenuList className="gap-1">
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
@@ -111,6 +120,24 @@ function RootLayout() {
               >
                 <Search size={20} strokeWidth={2} aria-hidden />
               </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" aria-label="Open navigation menu" className="sm:hidden">
+                    <Menu size={20} strokeWidth={2} aria-hidden />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-40">
+                  <DropdownMenuItem asChild>
+                    <Link to="/">Home</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/blog">Blog</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/projects">Projects</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </nav>
