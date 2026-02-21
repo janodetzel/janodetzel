@@ -2,15 +2,16 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "janodetzel-com",
   "compatibility_date": "2026-02-19",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "main": "@tanstack/react-start/server-entry",
-  "observability": { "enabled": true },
-  "workers_dev": false,
-  "route": { "pattern": "janodetzel.com", "custom_domain": true },
-  "env": {
-    "preview": {
-      "name": "janodetzel-com-preview",
-      "workers_dev": true
-    }
-  }
+  "observability": {
+    "enabled": true
+  },
+  "workers_dev": true,
+  "route": {
+    "pattern": "janodetzel.com",
+    "custom_domain": true
+  },
 }
