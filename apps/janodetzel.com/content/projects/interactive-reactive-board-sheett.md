@@ -3,7 +3,7 @@ title: "Sheett - Realtime Collaborative Spreadsheets"
 description: "A local-first, real-time collaboration board where cells are interactive, stateful, and reactive instead of static data fields."
 publishedAt: "2026-02-01"
 updatedAt: "2026-02-21"
-tags: ["React", "Next.js", "WebSockets", "IndexedDB", "Local-First"]
+tags: ["Expo", "Tinybase", "Cloudflare", "Supabase", "Local-First"]
 featured: true
 public: true
 slug: "interactive-reactive-board-sheett"
@@ -38,12 +38,11 @@ The goal is to combine the structural clarity of spreadsheets with the interacti
 
 ## Tech Stack
 
-- **Frontend:** React / Next.js (App Router)
-- **State management:** Local-first architecture (IndexedDB-based persistence)
-- **Realtime sync:** WebSockets
-- **Backend:** Node.js (lightweight sync + auth service)
-- **Auth:** JWT-based session management
-- **Hosting:** TBD
+- **Mobile:** Expo (iOS and Android)
+- **Web:** Expo Web
+- **Local-first storage:** Tinybase (SQLite)
+- **Realtime sync:** Cloudflare Durable Objects (WebSocket connection, conflict resolution)
+- **Auth:** Supabase
 
 ---
 
@@ -51,7 +50,7 @@ The goal is to combine the structural clarity of spreadsheets with the interacti
 
 ### 1. Local-First Architecture
 
-Boards are stored locally by default. Users can work fully offline. Synchronization is opt-in and happens via WebSockets when enabled.
+Boards are stored locally in SQLite via Tinybase. Users can work fully offline. Synchronization is opt-in and happens through Cloudflare Durable Objects when enabled.
 
 ### 2. Interactive Cell Types
 
