@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from '@tanstack/react-router'
+import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { getProjectBySlug } from '~/lib/content/projects'
 import { Markdown } from '~/components/Markdown'
 import { seo } from '~/utils/seo'
@@ -31,6 +31,12 @@ function ProjectPage() {
   return (
     <article className="mx-auto max-w-[720px] px-6 py-12">
       <header className="mb-8">
+        <Link
+          to="/projects"
+          className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-4"
+        >
+          ← Back to projects
+        </Link>
         <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
         {project.description && (
           <p className="text-muted-foreground mt-2">{project.description}</p>
