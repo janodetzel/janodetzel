@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from '@tanstack/react-router'
+import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { getBlogPostBySlug } from '~/lib/content/blog'
 import { Markdown } from '~/components/Markdown'
 import { seo } from '~/utils/seo'
@@ -31,6 +31,12 @@ function BlogPost() {
   return (
     <article className="mx-auto max-w-[720px] px-6 py-12">
       <header className="mb-8">
+        <Link
+          to="/blog"
+          className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-4"
+        >
+          ← Back to blog
+        </Link>
         <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
         {(post.publishedAt || post.updatedAt) && (
           <time className="text-muted-foreground text-sm">

@@ -37,27 +37,27 @@ One of the main reasons to use the Watchlist App is to ensure you never miss a s
 
 The primary benefit of using the Watchlist App is to bring order and organization to your film and TV show collection. By creating personalized watchlists, you can prioritize your viewing and avoid the frustration of forgetting titles or rewatching content by mistake. Whether you're a casual viewer or a dedicated cinephile, this app will help you stay on top of your entertainment game.
 
-###   
-How to Get Started with the Watchlist App?
+### How to Get Started with the Watchlist App?
 
 Using the Watchlist App is simple and straightforward. Here's a step-by-step guide to help you get started:
 
-1.  **Create a User Account:  
-    **Upon opening the app, create a new user account by entering your name. This will ensure a personalized experience and keep your watchlists separate from others.
+1. **Create a User Account:**  
+   Upon opening the app, create a new user account by entering your name. This ensures a personalized experience and keeps your watchlists separate from others.
 
-2.  **Create a Watchlist:  
-    **Tap on the pink icon to create your first Watchlist. Give it a name that reflects the content you'll be adding to it.
+2. **Create a Watchlist:**  
+   Tap on the pink icon to create your first watchlist. Give it a name that reflects the content you'll be adding to it.
 
-3.  **Search and Add:  
-    **Use the map icon to open the search feature. Look for films or TV shows that you've seen or plan to watch. Simply select the correct result, and the app will add it to your watchlist as a card with all the relevant details.
+3. **Search and Add:**  
+   Use the map icon to open the search feature. Look for films or TV shows that you've seen or plan to watch. Select the correct result, and the app adds it to your watchlist as a card with all relevant details.
 
-4.  **Track Your Progress:  
-    **As you watch a film or complete a TV show, mark it as "read" by tapping on the card. The bottom edge of the card will turn green, indicating that you've completed that title.
+4. **Track Your Progress:**  
+   As you watch a film or complete a TV show, mark it as "read" by tapping on the card. The bottom edge of the card turns green, indicating that you've completed that title.
 
-5.  **Switch Users:  
-    **If multiple users share the app, you can easily switch between accounts. Tap on "Log out," and on the login screen, select the desired user account or create a new one.
+5. **Switch Users:**  
+   If multiple users share the app, you can easily switch between accounts. Tap on "Log out," and on the login screen, select the desired user account or create a new one.
 
-6.  **Delete Users:  
-    **If you no longer need a user account, log out and tap and hold on the username. Then, tap on the pink text to permanently delete the user, along with all associated watchlists and cards.  
-    With these simple steps, you can begin organizing your film and TV show library and take control of your entertainment choices.  
-    So, what are you waiting for? Download the Watchlist App now and never miss out on another great movie or enticing TV show. Stay organized, stay entertained!
+6. **Delete Users:**  
+   If you no longer need a user account, log out and tap and hold on the username. Then tap on the pink text to permanently delete the user, along with all associated watchlists and cards.
+
+With these simple steps, you can begin organizing your film and TV show library and take control of your entertainment choices.  
+So, what are you waiting for? Download the Watchlist App now and never miss out on another great movie or enticing TV show. Stay organized, stay entertained!

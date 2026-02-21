@@ -19,21 +19,22 @@ Feierabend-Events is a mobile app that revolutionizes the way event organizers a
 
 Feierabend-Events makes use of the following technologies:
 
-*  **React Native and Expo:**
-    **The app is built using React Native, a popular framework for cross-platform mobile app development. Expo simplifies the development process and allows for faster prototyping.
+* **React Native and Expo:**
+  The app is built using React Native, a popular framework for cross-platform mobile app development. Expo simplifies the development process and allows for faster prototyping.
 
-*   **React Navigation:**
-    **React Navigation ensures smooth and seamless navigation between different screens, providing a pleasant user experience.
+* **React Navigation:**
+  React Navigation ensures smooth and seamless navigation between different screens, providing a pleasant user experience.
 
-*   **BottomSheets:**
-    **The BottomSheets library is employed to display additional event information or actions in a user-friendly bottom sheet layout.
+* **BottomSheets:**
+  The BottomSheets library is employed to display additional event information or actions in a user-friendly bottom sheet layout.
 
-*   **Mapbox Maps and Geolocation APIs:**
-    **Mapbox Maps and Geolocation APIs are utilized to provide users with a map view of events and accurate location data for event search and planning purposes.
+* **Mapbox Maps and Geolocation APIs:**
+  Mapbox Maps and Geolocation APIs are utilized to provide users with a map view of events and accurate location data for event search and planning purposes.
 
-*   **tRPC:**
-    **tRPC is used to build and consume type-safe APIs, facilitating efficient communication between the app and the backend.
+* **tRPC:**
+  tRPC is used to build and consume type-safe APIs, facilitating efficient communication between the app and the backend.
 
-*   **Supabase:**
-    **Supabase is leveraged for database management, authentication, and other essential backend functionalities, ensuring secure and reliable data storage.  
-    The combination of these technologies enables Feierabend-Events to deliver a robust and user-friendly platform for event discovery and organization.
+* **Supabase:**
+  Supabase is leveraged for database management, authentication, and other essential backend functionalities, ensuring secure and reliable data storage.
+
+The combination of these technologies enables Feierabend-Events to deliver a robust and user-friendly platform for event discovery and organization.
