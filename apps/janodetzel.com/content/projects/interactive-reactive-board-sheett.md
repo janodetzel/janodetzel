@@ -8,7 +8,7 @@ featured: true
 public: true
 slug: "interactive-reactive-board-sheett"
 cover: "https://github.com/user-attachments/assets/78dffa3e-39ed-4a24-a9a2-48df09744f13"
-status: "Building"
+status: "Private Beta"
 ---
 
 # Sheett: Interactive, Stateful Spreadsheets
@@ -126,6 +126,7 @@ Permissions apply not just at document level, but per interaction type. Board-le
 
 ## Links
 
+- **Beta:** Currently in private beta (TestFlight). Want to try it out? [Drop me an email](mailto:jano@janodetzel.com).
 - **Repository:** Private (not yet public)
 - **Live URL:** Not yet deployed
 - **Demo/Video:** Not yet available
