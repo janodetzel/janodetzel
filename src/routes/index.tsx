@@ -52,9 +52,9 @@ function HomePage() {
           className="block w-full max-h-[30vh] object-cover object-center"
         />
       </header>
-      <div className="mx-auto max-w-[900px] px-6 py-12">
+      <div className="mx-auto max-w-[900px] px-4 py-10 sm:px-6 sm:py-12">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-3">{site.name}</h1>
+          <h1 className="mb-3 text-3xl font-bold sm:text-4xl">{site.name}</h1>
           <div className="flex flex-wrap justify-center items-center gap-2 mb-2">
             {tags.map((tag) => (
               <Badge key={tag} variant="default">
@@ -70,23 +70,23 @@ function HomePage() {
           </a>
         </header>
 
-        <div className="grid grid-cols-[68.75%_31.25%] gap-8 mb-8 max-md:grid-cols-1">
-          <div className="flex flex-col justify-between min-h-[202px] max-md:min-h-0 max-md:justify-start">
+        <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-[68.75%_31.25%] md:gap-8">
+          <div className="order-2 flex min-h-[202px] flex-col justify-between max-md:min-h-0 max-md:justify-start md:order-1">
             <div>
-              <h2 className="text-3xl font-semibold mb-2">
+              <h2 className="mb-2 text-2xl font-semibold sm:text-3xl">
                 {homePage?.title}
               </h2>
               <p className="text-muted-foreground m-0">
                 {homePage?.description}
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 max-md:mt-4">
+            <div className="mt-4 flex flex-wrap gap-2 md:mt-0">
               {site.github && (
                 <Button
                   variant="outline"
                   size="lg"
                   asChild
-                  className="w-fit gap-2 px-6 py-6 text-base"
+                  className="w-full gap-2 px-4 py-5 text-base sm:w-fit sm:px-6 sm:py-6"
                 >
                   <a
                     href={`https://github.com/${site.github}`}
@@ -104,7 +104,7 @@ function HomePage() {
                   variant="outline"
                   size="lg"
                   asChild
-                  className="w-fit gap-2 px-6 py-6 text-base"
+                  className="w-full gap-2 px-4 py-5 text-base sm:w-fit sm:px-6 sm:py-6"
                 >
                   <a
                     href={`https://linkedin.com/in/${site.linkedin}`}
@@ -122,7 +122,7 @@ function HomePage() {
                   variant="outline"
                   size="lg"
                   asChild
-                  className="w-fit gap-2 px-6 py-6 text-base"
+                  className="w-full gap-2 px-4 py-5 text-base sm:w-fit sm:px-6 sm:py-6"
                 >
                   <a
                     href={`https://instagram.com/${site.instagram}`}
@@ -137,8 +137,8 @@ function HomePage() {
               )}
             </div>
           </div>
-          <div className="flex flex-row items-start gap-4">
-            <Avatar className="size-[202px] shrink-0 overflow-visible rounded-none">
+          <div className="order-1 flex flex-row items-start justify-center gap-4 md:order-2 md:justify-start">
+            <Avatar className="size-40 shrink-0 overflow-visible rounded-none sm:size-[202px]">
               <AvatarImage
                 src={homePage?.avatar ?? '/assets/pages/home/profile-2.png'}
                 alt="Jano Detzel"
@@ -159,7 +159,7 @@ function HomePage() {
               className="group block text-inherit no-underline focus:outline-none"
             >
               <Card className="overflow-hidden border-transparent transition-all hover:border-border hover:brightness-[1.02] hover:shadow-md dark:hover:shadow-lg">
-                <CardContent className="p-8">
+                <CardContent className="p-5 sm:p-8">
                   <h3 className="text-xl font-semibold mb-2">{latestPost.title}</h3>
                   <p className="text-muted-foreground text-sm mb-2 line-clamp-2">
                     {getExcerpt(latestPost as SearchableItem)}
@@ -194,7 +194,7 @@ function HomePage() {
 
         <section>
           <h4 className="text-base font-semibold mb-4">Projects</h4>
-          <div className="mt-8 grid grid-cols-[repeat(auto-fill,minmax(360px,1fr))] gap-[6vmin]">
+          <div className="mt-8 grid grid-cols-[repeat(auto-fill,minmax(min(100%,360px),1fr))] gap-[6vmin]">
             {projects.map((project) =>
               project.slug ? (
                 <Link
