@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "npm run build && npx wrangler deploy",
+    "deploy:preview": "npm run build && npx wrangler deploy --env preview",
     "cf-typegen": "wrangler types",
     "convert-content": "tsx scripts/convert-notion-export.ts"
   },
