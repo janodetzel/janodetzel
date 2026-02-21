@@ -122,3 +122,5 @@ Moving to Berlin gave me leverage.
 If you are early or mid-career and ambitious, the city offers something remote cannot fully replicate: density of opportunity.
 
 And over time, that density compounds. For more on career, engineering, and building in Europe, check out the [blog](/blog).
+
+_— Jano_
