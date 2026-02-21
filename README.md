@@ -24,3 +24,9 @@
 
 **Editor:**  Neovim [lazyconfig](https://github.com/janodetzel/lazyconfig)
 
+---
+
+### 📝 Recent
+
+- [Code from Your Phone: Cursor AI Agents + Cloudflare Preview Deployments](https://janodetzel.com/blog/cursor-cloudflare-mobile-dev-workflow) — Ship code from your phone using Cursor Background Agents and Cloudflare preview deployments
+
