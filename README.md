@@ -24,3 +24,9 @@
 
 **Editor:**  Neovim [lazyconfig](https://github.com/janodetzel/lazyconfig)
 
+---
+
+### 📝 Blog
+
+- [Code from Your Phone: Cursor AI Agents + Cloudflare Preview Deployments](blog/cursor-cloudflare-mobile-dev-workflow.md) — Ship code without a keyboard using Cursor background agents and Cloudflare preview deployments.
+
