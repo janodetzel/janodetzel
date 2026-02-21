@@ -22,6 +22,7 @@ Open http://localhost:3000
 ```bash
 npm run build
 npm run deploy
+npm run deploy:preview
 ```
 
 Deploy requires a Cloudflare account. Configure `wrangler.jsonc` for your project and run `wrangler deploy` (or `npm run deploy`).
