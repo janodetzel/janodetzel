@@ -203,7 +203,7 @@ function HomePage() {
                   params={{ slug: project.slug }}
                   className="group"
                 >
-                  <Card className="overflow-hidden border-transparent transition-all hover:border-border hover:brightness-[1.02] hover:shadow-md dark:hover:shadow-lg">
+                  <Card className="overflow-hidden border-transparent transition-all hover:border-border hover:brightness-[1.02] hover:shadow-md dark:hover:shadow-lg h-full">
                     {project.cover ? (
                       <img
                         src={project.cover}
