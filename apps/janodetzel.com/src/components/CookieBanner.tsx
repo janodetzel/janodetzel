@@ -28,7 +28,7 @@ export function CookieBanner() {
     >
       <div className="mx-auto flex max-w-[1100px] flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-muted-foreground">
-          This site uses localStorage for theme preference and may load images from third parties (e.g. Giphy).{' '}
+          We use cookies and similar technologies to provide and improve this site.{' '}
           <Link
             to="/privacy"
             className="text-foreground underline underline-offset-2 hover:no-underline"
