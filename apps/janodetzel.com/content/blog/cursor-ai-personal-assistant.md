@@ -46,7 +46,7 @@ Instead of explaining the same task every time, I created **skill files** — ma
 
 Each skill has:
 
-- **Trigger** — when to activate (e.g. "Tech Radar", or sharing an Instagram link)
+- **Trigger** — when to activate (e.g. "Tech Radar", or sharing a link)
 - **Execution steps** — what to research, how to structure output
 - **Output format** — where and how to save results
 - **Rules** — formatting, sourcing, language preferences
@@ -80,7 +80,6 @@ The workspace includes installed npm packages and Python tools the agent can use
 - **pdfkit** for generating formatted PDF reports
 - **sharp** for image processing
 - **axios + cheerio** for web scraping
-- **instaloader** for extracting Instagram content (captions, images, metadata)
 - **Excalidraw** for visual diagrams in the browser
 
 The agent uses these tools autonomously when a task requires them.
