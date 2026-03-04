@@ -14,4 +14,11 @@
     "pattern": "janodetzel.com",
     "custom_domain": true
   },
+  // Run `npx wrangler kv namespace create BLOG_IMPRESSIONS` and replace the id below for production
+  "kv_namespaces": [
+    {
+      "binding": "BLOG_IMPRESSIONS",
+      "id": "d8a08ca7d89d4d69beac073010cdfa6c"
+    }
+  ]
 }

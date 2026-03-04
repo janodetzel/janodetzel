@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { ArrowRight, Github, Linkedin, Instagram } from 'lucide-react'
+import { ArrowRight, Eye, Github, Linkedin, Instagram } from 'lucide-react'
 import { Avatar, AvatarImage } from '~/components/ui/avatar'
 import { Badge } from '~/components/ui/badge'
 import { Button } from '~/components/ui/button'
@@ -7,6 +7,7 @@ import { Card, CardContent } from '~/components/ui/card'
 import { Separator } from '~/components/ui/separator'
 import { site } from '~/config'
 import { getBlogPosts } from '~/lib/content/blog'
+import { getImpressions } from '~/lib/impressions'
 import { getPageBySlug } from '~/lib/content/pages'
 import { getProjects } from '~/lib/content/projects'
 import type { SearchableItem } from '~/lib/search'
@@ -23,7 +24,10 @@ export const Route = createFileRoute('/')({
       getBlogPosts(),
     ])
     const latestPost = posts[0] ?? null
-    return { projects, homePage, latestPost }
+    const impressions = latestPost?.slug
+      ? await getImpressions([latestPost.slug])
+      : {}
+    return { projects, homePage, latestPost, impressions }
   },
   component: HomePage,
 })
@@ -39,7 +43,7 @@ function formatProjectDate(d: string | undefined): string {
 }
 
 function HomePage() {
-  const { projects, homePage, latestPost } = Route.useLoaderData()
+  const { projects, homePage, latestPost, impressions } = Route.useLoaderData()
   const tags = homePage?.tags ?? []
   const email = homePage?.email ?? 'hello@janodetzel.com'
 
@@ -174,11 +178,19 @@ function HomePage() {
                         ))}
                       </div>
                     )}
-                    {(latestPost.updatedAt || latestPost.publishedAt) && (
-                      <time className="text-muted-foreground text-xs">
-                        {formatProjectDate(latestPost.updatedAt ?? latestPost.publishedAt)}
-                      </time>
-                    )}
+                    <div className="flex flex-wrap items-center gap-2">
+                      {(latestPost.updatedAt || latestPost.publishedAt) && (
+                        <time className="text-muted-foreground text-xs">
+                          {formatProjectDate(latestPost.updatedAt ?? latestPost.publishedAt)}
+                        </time>
+                      )}
+                      {latestPost.slug && impressions[latestPost.slug] > 0 && (
+                        <span className="text-muted-foreground text-xs inline-flex items-center gap-1">
+                          <Eye className="h-3.5 w-3.5" aria-hidden />
+                          {impressions[latestPost.slug].toLocaleString()}
+                        </span>
+                      )}
+                    </div>
                     <span className="inline-flex items-center gap-1 text-sm font-medium text-foreground group-hover:underline">
                       Read more
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
