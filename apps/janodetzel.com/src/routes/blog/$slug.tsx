@@ -1,5 +1,4 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
-import { useEffect, useState } from 'react'
 import { Eye } from 'lucide-react'
 import { getBlogPostBySlug } from '~/lib/content/blog'
 import { getAndIncrementImpression } from '~/lib/impressions'
@@ -41,18 +40,7 @@ function formatDate(d: string | undefined): string {
 }
 
 function BlogPost() {
-  const { post, impressions: initialImpressions } = Route.useLoaderData()
-  const [impressions, setImpressions] = useState(initialImpressions)
-
-  // Fetch count on client when loader returned 0 (client-side navigation)
-  useEffect(() => {
-    if (initialImpressions > 0 || !post?.slug) return
-    fetch(`/api/blog/${post.slug}/impression`, { method: 'POST' })
-      .then((res) => res.json())
-      .then((data) => setImpressions(data.count))
-      .catch(() => {})
-  }, [post?.slug, initialImpressions])
-
+  const { post, impressions } = Route.useLoaderData()
   return (
     <article className="mx-auto max-w-[720px] px-6 py-12">
       <header className="mb-8">
