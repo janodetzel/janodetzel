@@ -24,6 +24,7 @@ import {
 } from '~/components/ui/navigation-menu'
 import { seo } from '~/utils/seo'
 import { Footer } from '~/components/Footer'
+import { CookieBanner } from '~/components/CookieBanner'
 import { NotFound } from '~/components/NotFound'
 import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
 import { ThemeToggle } from '~/components/ThemeToggle'
@@ -145,6 +146,7 @@ function RootLayout() {
           <Outlet />
         </main>
         <Footer />
+        <CookieBanner />
         <SearchModal
           isOpen={searchOpen}
           onClose={() => setSearchOpen(false)}
