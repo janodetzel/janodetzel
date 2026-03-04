@@ -32,7 +32,12 @@ export const Route = createFileRoute('/blog/')({
   loader: async () => {
     const posts = await getBlogPosts()
     const slugs = posts.map((p) => p.slug!).filter(Boolean)
-    const impressions = await getImpressions(slugs)
+    let impressions: Record<string, number> = {}
+    try {
+      impressions = await getImpressions(slugs)
+    } catch {
+      // KV unavailable (e.g. preview deployment) – degrade gracefully
+    }
     return { posts, impressions }
   },
   head: () => ({
