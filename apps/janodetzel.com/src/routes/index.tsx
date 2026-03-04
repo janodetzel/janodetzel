@@ -24,9 +24,14 @@ export const Route = createFileRoute('/')({
       getBlogPosts(),
     ])
     const latestPost = posts[0] ?? null
-    const impressions = latestPost?.slug
-      ? await getImpressions([latestPost.slug])
-      : {}
+    let impressions: Record<string, number> = {}
+    try {
+      impressions = latestPost?.slug
+        ? await getImpressions([latestPost.slug])
+        : {}
+    } catch {
+      // KV unavailable (e.g. preview deployment) – degrade gracefully
+    }
     return { projects, homePage, latestPost, impressions }
   },
   component: HomePage,

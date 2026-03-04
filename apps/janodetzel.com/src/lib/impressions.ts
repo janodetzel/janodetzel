@@ -8,8 +8,9 @@ const KV_KEY_PREFIX = 'blog:impressions:'
  * @see https://tanstack.com/start/latest/docs/framework/react/guide/server-functions
  */
 export const getAndIncrementImpression = createServerFn({ method: 'POST' })
-  .inputValidator((slug: string) => slug)
+  .inputValidator((slug: unknown) => (typeof slug === 'string' ? slug : ''))
   .handler(async ({ data: slug }) => {
+    if (!slug) return 0
     try {
       const { env } = await import('cloudflare:workers')
       const kv = env.BLOG_IMPRESSIONS
@@ -30,8 +31,11 @@ export const getAndIncrementImpression = createServerFn({ method: 'POST' })
  * only on the server whether called from SSR or client-side navigation.
  */
 export const getImpressions = createServerFn()
-  .inputValidator((slugs: string[]) => slugs)
+  .inputValidator((slugs: unknown) =>
+    Array.isArray(slugs) ? slugs.filter((s): s is string => typeof s === 'string') : []
+  )
   .handler(async ({ data: slugs }) => {
+    if (!slugs.length) return {}
     const result: Record<string, number> = {}
     try {
       const { env } = await import('cloudflare:workers')
