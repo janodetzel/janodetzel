@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate, useSearch } from '@tanstack/react-router'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Eye } from 'lucide-react'
 import { getBlogPosts } from '~/lib/content/blog'
+import { getImpressions } from '~/lib/impressions'
 import { getExcerpt } from '~/lib/search'
 import type { SearchableItem } from '~/lib/search'
 import { seo } from '~/utils/seo'
@@ -28,7 +29,12 @@ export const Route = createFileRoute('/blog/')({
         ? search.sort
         : undefined,
   }),
-  loader: () => getBlogPosts(),
+  loader: async () => {
+    const posts = await getBlogPosts()
+    const slugs = posts.map((p) => p.slug!).filter(Boolean)
+    const impressions = await getImpressions(slugs)
+    return { posts, impressions }
+  },
   head: () => ({
     meta: [...seo({ title: `Blog | ${site.name}`, description: site.description, url: '/blog' })],
   }),
@@ -73,7 +79,7 @@ function sortPosts(posts: Awaited<ReturnType<typeof getBlogPosts>>, sort: BlogSo
 }
 
 function BlogIndex() {
-  const posts = Route.useLoaderData()
+  const { posts, impressions } = Route.useLoaderData()
   const { sort = 'newest' } = useSearch({ from: '/blog/' })
   const navigate = useNavigate()
 
@@ -133,11 +139,19 @@ function BlogIndex() {
                       </Badge>
                     ))}
                   </div>
-                  {date && (
-                    <time className="text-muted-foreground text-xs">
-                      {formatDate(date)}
-                    </time>
-                  )}
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-0.5">
+                    {date && (
+                      <time className="text-muted-foreground text-xs">
+                        {formatDate(date)}
+                      </time>
+                    )}
+                    {impressions[post.slug!] > 0 && (
+                      <span className="text-muted-foreground text-xs inline-flex items-center gap-1">
+                        <Eye className="h-3.5 w-3.5" aria-hidden />
+                        {impressions[post.slug!].toLocaleString()}
+                      </span>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             </Link>
