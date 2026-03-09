@@ -10,7 +10,7 @@ export const Route = createFileRoute('/blog/$slug')({
   loader: async ({ params }) => {
     const post = await getBlogPostBySlug(params.slug)
     if (!post) throw notFound()
-    const impressions = await getAndIncrementImpression(params.slug)
+    const impressions = await getAndIncrementImpression({ data: params.slug })
     return { post, impressions }
   },
   head: ({ loaderData }) => {

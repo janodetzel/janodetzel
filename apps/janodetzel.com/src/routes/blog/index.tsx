@@ -32,7 +32,7 @@ export const Route = createFileRoute('/blog/')({
   loader: async () => {
     const posts = await getBlogPosts()
     const slugs = posts.map((p) => p.slug!).filter(Boolean)
-    const impressions = await getImpressions(slugs)
+    const impressions = await getImpressions({ data: slugs })
     return { posts, impressions }
   },
   head: () => ({

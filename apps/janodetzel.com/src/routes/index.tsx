@@ -25,7 +25,7 @@ export const Route = createFileRoute('/')({
     ])
     const latestPost = posts[0] ?? null
     const impressions = latestPost?.slug
-      ? await getImpressions([latestPost.slug])
+      ? await getImpressions({ data: [latestPost.slug] })
       : {}
     return { projects, homePage, latestPost, impressions }
   },
