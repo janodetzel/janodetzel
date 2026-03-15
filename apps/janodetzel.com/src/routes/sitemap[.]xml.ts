@@ -16,6 +16,7 @@ export const Route = createFileRoute('/sitemap.xml')({
           `${host}/blog`,
           `${host}/projects`,
           `${host}/site-notice`,
+          `${host}/privacy`,
           ...posts.map((p) => `${host}/blog/${p.slug}`),
           ...projects.map((p) => `${host}/projects/${p.slug}`),
         ]
