@@ -18,6 +18,10 @@ export function Footer() {
           <Button variant="link" asChild className="h-auto p-0 text-muted-foreground hover:text-foreground">
             <Link to="/site-notice">Site notice</Link>
           </Button>
+          <Separator orientation="vertical" className="h-4" />
+          <Button variant="link" asChild className="h-auto p-0 text-muted-foreground hover:text-foreground">
+            <Link to="/privacy">Privacy</Link>
+          </Button>
         </div>
         <div className="flex gap-4">
           {site.twitter && (

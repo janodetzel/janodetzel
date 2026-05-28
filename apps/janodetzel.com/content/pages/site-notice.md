@@ -14,6 +14,8 @@ Jano Detzel
 
 E-mail: [jano@janodetzel.com](mailto:jano@janodetzel.com)  
 
+For information about data processing and cookies, see our [Privacy & Cookies](/privacy) page.
+
 ### EU dispute resolution
 
 The European Commission provides a platform for online dispute resolution (ODR):
